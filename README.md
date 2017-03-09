@@ -1,2 +1,2 @@
-# swiftprogramming
+# Swift Programming
 Swift Programming
