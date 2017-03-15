@@ -78,3 +78,12 @@ c.gasLevel
 c.fillGas()
 c.gasLevel
 
+
+// Bronze Challenge
+
+extension Int {
+    var timesFive: Int { return self * 5 }
+}
+6.timesFive
+
+
