@@ -99,6 +99,29 @@ func greetByMiddleName(fromFullName name: (first: String,
         print("Hey there!")
         return
     }
-    print("Hey \(middleName)")
+    print("Hello \(middleName)")
 }
 greetByMiddleName(fromFullName: ("Matt", "John", "Mathias"))
+greetByMiddleName(fromFullName: ("Jim", nil, "Morrison"))
+
+// Challenge  Sliver
+
+func siftBeans(fromGroceryList: [String]) -> (beans: [String], otherGroceries:[String]) {
+    var beans = [String]()
+    var otherGroceries = [String]()
+    
+    for item in fromGroceryList {
+    if item.hasSuffix("beans") {
+        beans.append(item)
+    } else {
+        otherGroceries.append(item)
+        }
+    }
+    return(beans,otherGroceries)
+}
+
+let result = siftBeans(fromGroceryList:
+    ["green beans", "milk",
+     "black beans", "pinto beans", "apples"])
+result.beans
+result.otherGroceries
