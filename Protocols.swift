@@ -10,7 +10,8 @@ protocol TabularDataSource {
 }
 
 //func printTable(_ data: [[String]], withColumnLabels columnLabels: String...) {
-func printTable(_ dataSource: TabularDataSource) {
+func printTable(_ dataSource: TabularDataSource & CustomStringConvertible) {
+    print("Table: \(dataSource.description)")
     var firstRow = "|"
     
     
@@ -65,9 +66,13 @@ struct Person {
     let yearsOfExperience: Int
 }
 
-struct Department: TabularDataSource {
+struct Department: TabularDataSource, CustomStringConvertible {
     let name: String
     var people = [Person]()
+    
+    var description: String {
+        return "Department (\(name))"
+    }
     
     init(name: String) {
         self.name = name
@@ -114,3 +119,4 @@ department.add(Person(name: "Karen", age: 40, yearsOfExperience: 18))
 department.add(Person(name: "Fred", age: 50, yearsOfExperience: 20))
 
 printTable(department)
+//print(department)
